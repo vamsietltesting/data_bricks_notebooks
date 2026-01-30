@@ -26,3 +26,22 @@ WHERE rn = 3;
 --How do you identify duplicate records and their count?
 Select count(*), id,name,salary from employee group by id,name,salary 
 Having count(*)>1;
+
+-- COMMAND ----------
+
+---5)	How do you find employees who earn more than their manager or joined before their manager?
+SELECT 
+    e.emp_id,
+    e.name,
+    e.salary AS emp_salary,
+    m.name AS manager_name,
+    m.salary AS manager_salary
+FROM employee e
+JOIN employee m
+ON e.manager_id = m.emp_id
+WHERE e.salary > m.salary;
+
+
+-- COMMAND ----------
+
+
