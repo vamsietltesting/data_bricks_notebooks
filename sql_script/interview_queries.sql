@@ -20,3 +20,10 @@ WITH cte AS (
 SELECT *
 FROM cte
 WHERE rn = 3;
+
+-- COMMAND ----------
+
+--How do you identify duplicate records and their count?
+Select count(*), id,name,salary from employee group by id,name,salary 
+Having count(*)>1;
+
